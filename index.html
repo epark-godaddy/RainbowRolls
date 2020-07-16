@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rainbow Rolls</title>
+    <script src="./dist/main.js"></script>
+    <style>
+      h1,
+      .instr {
+        text-align: center;
+        width: 100%;
+      }
+      #board {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+      }
+      .grid {
+        width: 500px;
+        height: 500px;
+        background-color: pink;
+        display: flex;
+        justify-content: stretch;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+      }
+      .sushi {
+        /* background-color: blue; */
+        margin: 10px;
+        flex: 1;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      svg {
+        width: 100%;
+      }
+
+      .row {
+        display: flex;
+        justify-content: stretch;
+        align-items: stretch;
+        flex: 1;
+      }
+
+      #countdown {
+        position: relative;
+        margin: auto;
+        margin-top: 100px;
+        height: 40px;
+        width: 40px;
+        text-align: center;
+      }
+
+      .level-number {
+        color: black;
+        display: inline-block;
+        line-height: 40px;
+      }
+
+      .clock {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        transform: rotateY(-180deg) rotateZ(-90deg);
+      }
+
+      .clock circle {
+        stroke-dasharray: 113px;
+        stroke-dashoffset: 0px;
+        stroke-linecap: round;
+        stroke-width: 2px;
+        stroke: black;
+        fill: none;
+        animation: countdown 8s linear infinite forwards;
+      }
+
+      @keyframes countdown {
+        from {
+          stroke-dashoffset: 0px;
+        }
+        to {
+          stroke-dashoffset: 113px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to Rainbow Rolls</h1>
+    <div id="countdown"></div>
+    <div id="board"></div>
+
+    <p class="instr">
+      HOW TO PLAY: Select the uniquely colored piece of sushi!
+    </p>
+  </body>
+</html>
