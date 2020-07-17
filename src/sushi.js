@@ -6,11 +6,10 @@ class Sushi {
     this.onClick = this.onClick.bind(this);
   }
   onClick() {
-    console.log(this.special);
     if (this.special) {
       document.dispatchEvent(new Event("success"));
     } else {
-      document.dispatchEvent(new Event("failure"));
+      document.dispatchEvent(new Event("bad guess"));
     }
   }
 

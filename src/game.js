@@ -3,11 +3,13 @@ import Timer from "./timer";
 export default class Game {
   constructor() {
     document.addEventListener("success", () => this.loadGame());
-    document.addEventListener("failure", () => this.loseGame());
+    document.addEventListener("game over", () => this.loseGame());
     this.level = 0;
+    this.highScore = 0;
   }
-  onClick() {}
+
   loadGame() {
+    if (this.gameOver) return;
     const board = document.getElementById("board");
     if (board.hasChildNodes()) {
       board.removeChild(board.childNodes[0]);
@@ -18,7 +20,11 @@ export default class Game {
         countdown.removeChild(node);
       });
     }
+
     this.level += 1;
+    const highScore = document.getElementById("high-score");
+    if (this.level > this.highScore) this.highScore = this.level;
+    highScore.innerHTML = "High Score: " + this.highScore;
     this.board = new Board(this.level);
     this.board.render();
 
@@ -27,7 +33,15 @@ export default class Game {
   }
 
   loseGame() {
-    console.log("You Lost");
-    console.log(this.level - 1);
+    this.gameOver = true;
+    if (window.confirm("That wasn't correct! Try Again?")) {
+      this.restartGame();
+    }
+  }
+
+  restartGame() {
+    this.gameOver = false;
+    this.level = 0;
+    this.loadGame();
   }
 }

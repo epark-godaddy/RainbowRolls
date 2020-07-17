@@ -2,12 +2,61 @@
 <html>
   <head>
     <title>Rainbow Rolls</title>
+    <script
+      src="https://kit.fontawesome.com/9155bfe459.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="./dist/main.js"></script>
     <style>
+      body {
+        margin: 0;
+      }
+      .main-body {
+        display: flex;
+      }
       h1,
-      .instr {
+      #base-timer-label {
         text-align: center;
         width: 100%;
+        font-family: Marker Felt, fantasy;
+        color: white;
+        font-weight: bold;
+      }
+
+      h1 {
+        font-size: 50px;
+      }
+      .instr,
+      #high-score {
+        text-align: center;
+        width: 100%;
+        font-family: Marker Felt, fantasy;
+        color: white;
+      }
+      #high-score,
+      .first-panel {
+        flex: 10;
+      }
+      h1 {
+        font-family: Marker Felt, fantasy;
+      }
+      .body-container {
+        background-image: url("./dist/images/sushiboard.png");
+        background-size: cover;
+        height: 100vh;
+        margin: 0;
+        padding: 1px;
+      }
+
+      .plate {
+        background-image: url("./dist/images/whiteplate.png");
+        background-position: center;
+        background-size: cover;
+        width: 600px;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       #board {
         display: flex;
@@ -19,7 +68,7 @@
       .grid {
         width: 500px;
         height: 500px;
-        background-color: pink;
+        background-color: transparent;
         display: flex;
         justify-content: stretch;
         flex-direction: column;
@@ -45,59 +94,125 @@
         align-items: stretch;
         flex: 1;
       }
-
       #countdown {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .base-timer {
         position: relative;
-        margin: auto;
-        margin-top: 100px;
-        height: 40px;
-        width: 40px;
-        text-align: center;
+        width: 150px;
+        height: 150px;
       }
 
-      .level-number {
-        color: black;
-        display: inline-block;
-        line-height: 40px;
+      .base-timer__svg {
+        transform: scaleX(-1);
       }
 
-      .clock {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 40px;
-        height: 40px;
-        transform: rotateY(-180deg) rotateZ(-90deg);
-      }
-
-      .clock circle {
-        stroke-dasharray: 113px;
-        stroke-dashoffset: 0px;
-        stroke-linecap: round;
-        stroke-width: 2px;
-        stroke: black;
+      .base-timer__circle {
         fill: none;
-        animation: countdown 8s linear infinite forwards;
+        stroke: none;
       }
 
-      @keyframes countdown {
-        from {
-          stroke-dashoffset: 0px;
-        }
-        to {
-          stroke-dashoffset: 113px;
-        }
+      .base-timer__path-elapsed {
+        stroke-width: 7px;
+        stroke: grey;
+      }
+
+      .base-timer__path-remaining {
+        stroke-width: 7px;
+        stroke-linecap: round;
+        transform: rotate(90deg);
+        transform-origin: center;
+        transition: 1s linear all;
+        fill-rule: nonzero;
+        stroke: currentColor;
+      }
+
+      .base-timer__path-remaining.green {
+        color: rgb(65, 184, 131);
+      }
+
+      .base-timer__path-remaining.orange {
+        color: orange;
+      }
+
+      .base-timer__path-remaining.red {
+        color: red;
+      }
+
+      .base-timer__label {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+      }
+
+      footer {
+        background-color: rgb(65, 184, 131);
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+      .contact-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .contact-text {
+        text-align: center;
+        font-family: Marker Felt, fantasy;
+        color: aqua;
+      }
+
+      .contact-info label {
+        margin-right: 5px;
+      }
+
+      .fa-github-square {
+        font-size: 30px;
+        color: black;
+        margin: 8px;
+      }
+
+      .fa-linkedin {
+        font-size: 30px;
+        color: black;
+        margin: 8px;
       }
     </style>
   </head>
 
   <body>
-    <h1>Welcome to Rainbow Rolls</h1>
-    <div id="countdown"></div>
-    <div id="board"></div>
-
-    <p class="instr">
-      HOW TO PLAY: Select the uniquely colored piece of sushi!
-    </p>
+    <div class="body-container">
+      <h1>Welcome to Rainbow Rolls</h1>
+      <div class="main-body">
+        <div class="first-panel">
+          <p class="instr">
+            HOW TO PLAY: Select the uniquely colored piece of sushi!
+          </p>
+          <div id="countdown"></div>
+        </div>
+        <div class="board-container">
+          <div id="board"></div>
+        </div>
+        <div id="high-score"></div>
+      </div>
+      <footer>
+        <div class="contact-info">
+          <div class="contact-text">Get in Touch:</div>
+          <a href="https://github.com/ElishaPark" target="_blank"
+            ><i class="fab fa-github-square"></i
+          ></a>
+          <a href="https://www.linkedin.com/in/elishaspark/" target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

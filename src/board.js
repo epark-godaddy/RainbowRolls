@@ -94,7 +94,7 @@ class Board {
     const outline = this.colors[this.randomColorIdx][0];
     const fill = this.colors[this.randomColorIdx][1];
 
-    const colorChange = 40 - Math.floor(this.level / 4) * 2;
+    const colorChange = 30 - Math.floor(this.level / 4) * 2;
 
     const indexToChange = this.getHighestNumberIndex(outline);
     outline[indexToChange] = outline[indexToChange] - colorChange;
@@ -111,6 +111,10 @@ class Board {
     const grid = document.createElement("div");
     grid.className = "grid";
 
+    const plate = document.createElement("div");
+    plate.className = "plate";
+
+    plate.appendChild(grid);
     this.grid.forEach((row) => {
       const rowEle = document.createElement("div");
       rowEle.className = "row";
@@ -121,7 +125,7 @@ class Board {
       grid.appendChild(rowEle);
     });
 
-    document.getElementById("board").appendChild(grid);
+    document.getElementById("board").appendChild(plate);
   }
 }
 
