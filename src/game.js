@@ -6,9 +6,13 @@ export default class Game {
     document.addEventListener("game over", () => this.loseGame());
     this.level = 0;
     this.highScore = 0;
+    const button = document.getElementById("play-button");
+    button.onclick = () => {
+      this.restartGame();
+    };
   }
 
-  loadGame() {
+  loadGame(showTimer = true) {
     if (this.gameOver) return;
     const board = document.getElementById("board");
     if (board.hasChildNodes()) {
@@ -28,13 +32,15 @@ export default class Game {
     this.board = new Board(this.level);
     this.board.render();
 
-    this.timer = new Timer(this.level);
-    this.timer.render();
+    if (showTimer) {
+      this.timer = new Timer(this.level);
+      this.timer.render();
+    }
   }
 
   loseGame() {
     this.gameOver = true;
-    if (window.confirm("That wasn't correct! Try Again?")) {
+    if (window.confirm("Better luck next time! Try Again?")) {
       this.restartGame();
     }
   }

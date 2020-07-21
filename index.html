@@ -26,8 +26,9 @@
       h1 {
         font-size: 50px;
       }
-      .instr,
+      .instr,.instr-detail,
       #high-score {
+        font-size: 26px;
         text-align: center;
         width: 100%;
         font-family: Marker Felt, fantasy;
@@ -39,6 +40,12 @@
       }
       h1 {
         font-family: Marker Felt, fantasy;
+      }
+
+      .chalkboard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       .body-container {
         background-image: url("./dist/images/sushiboard.png");
@@ -76,7 +83,6 @@
         padding: 10px;
       }
       .sushi {
-        /* background-color: blue; */
         margin: 10px;
         flex: 1;
         max-width: 100%;
@@ -110,7 +116,7 @@
       }
 
       .base-timer__circle {
-        fill: none;
+        fill: black;
         stroke: none;
       }
 
@@ -166,7 +172,7 @@
       .contact-text {
         text-align: center;
         font-family: Marker Felt, fantasy;
-        color: aqua;
+        color: white;
       }
 
       .contact-info label {
@@ -175,14 +181,25 @@
 
       .fa-github-square {
         font-size: 30px;
-        color: black;
+        color: white;
         margin: 8px;
       }
 
       .fa-linkedin {
         font-size: 30px;
-        color: black;
+        color: white;
         margin: 8px;
+      }
+
+      #play-button {
+        font-family: Marker Felt, fantasy;
+        background-color: rgb(241,156,187);
+        height: 5vh;
+        width: 10vw;
+        margin-top: 10px;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        border-radius: 8px;
+        outline:none;
       }
     </style>
   </head>
@@ -192,20 +209,27 @@
       <h1>Welcome to Rainbow Rolls</h1>
       <div class="main-body">
         <div class="first-panel">
-          <p class="instr">
-            HOW TO PLAY: Select the uniquely colored piece of sushi!
-          </p>
-          <div id="countdown"></div>
+          <div class="chalkboard">
+            <p class="instr">
+              HOW TO PLAY: 
+              <div class="instr-detail">
+                Select the uniquely colored piece of sushi!
+              </div>  
+              <button id='play-button'>Start Game</button>
+            </p>
+            <div id="countdown"></div>
+          </div>
         </div>
         <div class="board-container">
           <div id="board"></div>
         </div>
         <div id="high-score"></div>
+       
       </div>
       <footer>
         <div class="contact-info">
           <div class="contact-text">Get in Touch:</div>
-          <a href="https://github.com/ElishaPark" target="_blank"
+          <a href="https://github.com/ElishaPark/RainbowRolls" target="_blank"
             ><i class="fab fa-github-square"></i
           ></a>
           <a href="https://www.linkedin.com/in/elishaspark/" target="_blank"
