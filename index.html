@@ -27,14 +27,14 @@
         font-size: 50px;
       }
       .instr,.instr-detail,
-      #high-score {
+      #highest-level {
         font-size: 26px;
         text-align: center;
         width: 100%;
         font-family: Marker Felt, fantasy;
         color: white;
       }
-      #high-score,
+      .sushi-reward-container,
       .first-panel {
         flex: 10;
       }
@@ -202,6 +202,15 @@
         outline:none;
 
       }
+
+      #sushi-reward{
+        display:flex;
+        flex-wrap: wrap;
+      }
+      #sushi-reward svg {
+        width: 25%;
+        padding: 10px;
+      }
     </style>
   </head>
 
@@ -224,12 +233,14 @@
         <div class="board-container">
           <div id="board"></div>
         </div>
-        <div id="high-score"></div>
-       
+        <div class="sushi-reward-container">
+          <div id="highest-level"></div>
+          <div id="sushi-reward"></div>
+        </div>
       </div>
       <footer>
         <div class="contact-info">
-          <div class="contact-text">Get in Touch:</div>
+          <div class="contact-text">Created by Elisha Kutnick</div>
           <a href="https://github.com/ElishaPark/RainbowRolls" target="_blank"
             ><i class="fab fa-github-square"></i
           ></a>

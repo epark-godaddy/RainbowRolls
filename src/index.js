@@ -2,5 +2,5 @@ import Game from "./game";
 
 document.addEventListener("DOMContentLoaded", () => {
   const game = new Game();
-  game.loadGame(false);
+  game.loadGame(false, false);
 });

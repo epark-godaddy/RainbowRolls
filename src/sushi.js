@@ -7,10 +7,16 @@ class Sushi {
   }
   onClick() {
     if (this.special) {
-      document.dispatchEvent(new Event("success"));
+      document.dispatchEvent(new CustomEvent("success", { detail: this }));
     } else {
       document.dispatchEvent(new Event("bad guess"));
     }
+  }
+
+  append() {
+    const sushiReward = document.getElementById("sushi-reward");
+    const sushiSVG = this.generateSVG();
+    sushiReward.appendChild(sushiSVG);
   }
 
   render() {
