@@ -1,6 +1,6 @@
 # RainbowRolls
 
-[Check out Rainbow Rolls here](https://epark-godaddy.github.io/RainbowRolls/)
+[Check out Rainbow Rolls here](https://elishakutnick.github.io/RainbowRolls/)
 
 ## Background
 RainbowRolls is a game that tests how well players can distinguish between colors within color families. Users are presented with a grid of colors, represented as pieces of sushi, and asked to click on the one different color from the choices on the screen. The levels increase in difficulty, with changes in colors becoming more discreet every four levels. The game was built using JavaScript, HTML, and CSS.
